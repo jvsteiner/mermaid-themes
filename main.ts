@@ -4,10 +4,13 @@ import mermaid from "mermaid";
 
 // Remember to rename these classes and interfaces!
 
+type Tweak = {
+	[key: string]: any;
+};
 interface MermaidThemeSettings {
 	theme: string;
 	tweakStyle: boolean;
-	themeTweaks: object;
+	themeTweaks: Tweak;
 }
 
 const DEFAULT_SETTINGS: MermaidThemeSettings = {
