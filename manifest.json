@@ -1,7 +1,7 @@
 {
 	"id": "mermaid-themes",
 	"name": "Mermaid Themes",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "0.15.0",
 	"description": "This is an Obsidian plugin that makes it easy to apply custom mermaid.js themes and apply other tweaks. This plugin is supported by advertisements.",
 	"author": "jvsteiner",
