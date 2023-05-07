@@ -1,16 +1,17 @@
 import { App, Plugin, PluginSettingTab, Setting } from "obsidian";
 
 import mermaid from "mermaid";
+import { v4 as uuidv4 } from "uuid";
 
 // Remember to rename these classes and interfaces!
 
-type Tweak = {
+type Anything = {
 	[key: string]: any;
 };
 interface MermaidThemeSettings {
 	theme: string;
 	tweakStyle: boolean;
-	themeTweaks: Tweak;
+	themeTweaks: Anything;
 }
 
 const DEFAULT_SETTINGS: MermaidThemeSettings = {
@@ -40,9 +41,7 @@ export default class MermaidThemePlugin extends Plugin {
 		const leaf: any = this.app.workspace.activeLeaf
 			? this.app.workspace.activeLeaf
 			: null;
-		if (leaf) {
-			leaf.rebuildView();
-		}
+		leaf?.rebuildView();
 	}
 
 	private draw_diagram() {
@@ -58,12 +57,30 @@ export default class MermaidThemePlugin extends Plugin {
 				"text-align: left;display: block;"
 			);
 
+			console.log("uuid", uuidv4().toString().replace(/-/gi, ""));
+
+			const anID = `mermaid-${uuidv4().toString().replace(/-/gi, "")}`;
 			this.mermaid
-				.render("someID", source)
+				.render(anID, source)
 				.then((svg: any) => {
+					// console.log("rendered", svg);
+					// const uriData = `data:image/svg+xml;base64,${btoa(
+					// 	svg.svg
+					// )}`;
+					// console.log("uriData", uriData);
+					// const img = new Image();
+					// img.src = uriData;
+					// img.onload = () => {
+					// 	el.innerHTML = "";
+					// 	el.appendChild(img);
+					// };
+
+					// const link = document.createElement("a");
 					el.innerHTML = svg.svg;
+					// el.appendChild(link);
 				})
 				.catch((err: any) => {
+					console.log("error", err);
 					el.innerHTML = `<pre>${err}</pre>`;
 				});
 		};
@@ -131,19 +148,6 @@ class MermaidThemeSettingTab extends PluginSettingTab {
 		});
 		coffeeImg.height = 45;
 		containerEl.createEl("br");
-
-		// new Setting(containerEl)
-		// 	.setName("AWS Access Key ID")
-		// 	.setDesc("AWS access key ID for a user with S3 access.")
-		// 	.addText((text) => {
-		// 		wrapTextWithPasswordHide(text);
-		// 		text.setPlaceholder("access key")
-		// 			.setValue(this.plugin.settings.accessKey)
-		// 			.onChange(async (value) => {
-		// 				this.plugin.settings.accessKey = value.trim();
-		// 				await this.plugin.saveSettings();
-		// 			});
-		// 	});
 
 		new Setting(containerEl)
 			.setName("Choose a Theme")
