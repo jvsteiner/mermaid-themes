@@ -2,33 +2,38 @@
 
 This is a plugin for [Obsidian](https://obsidian.md). It was generated based on the [standard plugin template](https://github.com/obsidianmd/obsidian-sample-plugin).
 
-This project allows the user to apply custom themes to mermaid.js diagrams in obsidian.
+This project allows the user to easily apply and customize themes to mermaid.js diagrams in obsidian.
 
 This plugin is supported by advertisements.
 
 Note: this plugin is still in development, and there may be some bugs. Please report any issues you find.
 
-It was inspired by the awesome new plugin for publishing your note content to Confluence.  This project introduced me to Mermaid, and prompted me to make this. 
+It was inspired by the awesome new plugin for publishing your note content to Confluence. This project introduced me to Mermaid, and prompted me to make this.
 
 -   [Markdown Confluence](https://github.com/markdown-confluence/markdown-confluence)
 
 ## Usage
 
-Install it, and it will allow you to apply other themes to your mermaid diagrams in your notes.  There are two main options, which are mutually exclusive.  Either you supply an entire mermaid theme object, or you provide the parts of that object that you want to change.  The plugin will then merge your changes with the default theme, and apply the result to your diagrams. 
+Install it, and it will allow you to apply other themes to your mermaid diagrams in your notes. There are two main options, which are mutually exclusive. Either you supply an entire mermaid theme object, or you provide the parts of that object that you want to change. The plugin will then merge your changes with the base theme, and apply the result to your diagrams.
+
+The `mermaid` code fence label is reserved. You have to use `merm` as an alternate. The code block looks like:
+
+        ```merm
+        ```
 
 ### Installation
 
-Until this plugin is available in the community plugins list, you can install it as a beta tester using the [BRAT plugin](https://github.com/TfTHacker/obsidian42-brat).  
+Until this plugin is available in the community plugins list, you can install it as a beta tester using the [BRAT plugin](https://github.com/TfTHacker/obsidian42-brat).
 
 Details on how to use it are available in their documentation. The short version is that you can install this plugin by adding the following custom plugin repository to your list of repositories in the BRAT plugin settings.
 
 ## Development
 
-PR's are welcome. You can build the plugin with `npm run build` and the plugin will be built to the root folder, so using the built artifacts is easy.  You can also run `npm run dev` to have it automatically rebuild when you make changes.
-
+PR's are welcome. You can build the plugin with `npm run build` and the plugin will be built to the root folder, so using the built artifacts is easy. You can also run `npm run dev` to have it automatically rebuild when you make changes.
 
 ### Releasing new releases
-This section is here to remind me how to release this. 
+
+This section is here to remind me how to release this.
 
 Update your manifest.json with your new version number, such as 1.0.1, and the minimum Obsidian version required for your latest release.
 
