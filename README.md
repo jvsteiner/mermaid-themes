@@ -14,7 +14,7 @@ It was inspired by the awesome new plugin for publishing your note content to Co
 
 ## Usage
 
-Install it, and it will allow you to apply other themes to your mermaid diagrams in your notes. There are two main options, which are mutually exclusive. Either you supply an entire mermaid theme object, or you provide the parts of that object that you want to change. The plugin will then merge your changes with the base theme, and apply the result to your diagrams.
+Allows you to apply other themes to your mermaid diagrams in your notes. There are two main options, which are mutually exclusive. Either you supply an entire mermaid theme object, or you provide the parts of that object that you want to change. The plugin will then merge your customizations with the base theme, and apply the result to your diagrams.
 
 The `mermaid` code fence label is reserved. You have to use `merm` as an alternate. The code block looks like:
 

@@ -32,7 +32,7 @@ export default class MermaidThemePlugin extends Plugin {
 		this.addSettingTab(new MermaidThemeSettingTab(this.app, this));
 		this.mermaid = mermaid;
 		mermaid.initialize({ startOnLoad: true });
-		console.log("new", mermaid);
+		// console.log("new", mermaid);
 		this.setTheme(this.settings.theme);
 		this.registerMarkdownCodeBlockProcessor("merm", this.draw_diagram());
 	}
@@ -56,8 +56,6 @@ export default class MermaidThemePlugin extends Plugin {
 				"style",
 				"text-align: left;display: block;"
 			);
-
-			console.log("uuid", uuidv4().toString().replace(/-/gi, ""));
 
 			const anID = `mermaid-${uuidv4().toString().replace(/-/gi, "")}`;
 			this.mermaid
@@ -92,19 +90,13 @@ export default class MermaidThemePlugin extends Plugin {
 		if (this.settings.tweakStyle) {
 			this.mermaid.initialize({ theme: "base" });
 			const conf = this.mermaid.mermaidAPI.getConfig();
-			console.log("base theme", conf);
 			this.settings.themeTweaks.theme = "base";
 			const newTheme = { ...conf, ...this.settings.themeTweaks };
-			console.log("constructed theme", newTheme);
 			this.mermaid.initialize(newTheme);
 		} else {
 			this.mermaid.initialize({ theme: theme });
 		}
 
-		console.log(
-			"theme finally set to",
-			this.mermaid.mermaidAPI.getConfig()
-		);
 		this.refresh();
 		this.tab.display();
 	}
@@ -163,7 +155,6 @@ class MermaidThemeSettingTab extends PluginSettingTab {
 					})
 					.setValue(this.plugin.settings.theme)
 					.onChange(async (value: any) => {
-						console.log(value);
 						this.plugin.settings.theme = value;
 						await this.plugin.saveSettings();
 						this.plugin.setTheme(value);
