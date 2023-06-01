@@ -1,6 +1,6 @@
 {
 	"name": "mermaid-themes",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "This is a mermaid.js styling plugin for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
