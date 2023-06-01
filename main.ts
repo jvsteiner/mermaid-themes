@@ -126,8 +126,6 @@ class MermaidThemeSettingTab extends PluginSettingTab {
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
-		containerEl.createEl("h2", { text: "Settings for Mermaid Themes" });
-		containerEl.createEl("br");
 
 		const coffeeDiv = containerEl.createDiv("coffee");
 		const coffeeLink = coffeeDiv.createEl("a", {
